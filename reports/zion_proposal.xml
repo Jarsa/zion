@@ -4,8 +4,8 @@
 		<template id="zion_report_proposal">
 			<t t-call="report.html_container">
 				<t t-foreach="docs" t-as="doc">
-					<t t-call="zion.layout_zion">
-						<t t-call="zion.header_zion"/>
+					<t t-call="report_zion.layout_zion">
+						<t t-call="report_zion.header_zion"/>
 						<div class="page">
 							<!--FILA INFORMACION-->
 							<div class="row">
