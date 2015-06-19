@@ -1,2 +1,2 @@
-# report_zion
-Reportes para zion en Odoo
+# Zion
+Reports for Zion

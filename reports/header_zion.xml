@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+    <data>
+    	<report id="header_zion" 
+                model="account.invoice"
+                string="Header Report Zion"
+                name="account.header_zion_view"
+                file="account.header_zion"
+                report_type="qweb-pdf"/>
+
+        <template id="account.header_zion_view">
+            <t t-call="report.html_container">
+                <t t-foreach="docs" t-as="doc">
+                    <div class="header">
+                        <div class="row">
+                            <div class="col-xs-4 col-xs-offset-8">
+                        <img src='/document/static/img/company_logo.png'/>
+                    </div>
+                </div>
+            </div>
+        </template>
+    </data>
+</openerp>

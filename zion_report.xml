@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<openerp>
+	<data>
+		<report 
+            id="zion_proposal"
+            model="sale.order"
+            string="Proposal Zion"
+            report_type="qweb-pdf"
+            name="zion.zion_report_proposal"
+            file="zion.zion_report_proposal"
+        />
+	</data>
+</openerp>

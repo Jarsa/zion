@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+    <data>
+    	<report id="report_zion" 
+                model="account.invoice"
+                string="Report Zion"
+                name="account.report_zion_view"
+                file="account.report_zion"
+                report_type="qweb-pdf"/>
+
+        <template id="report_zion_">
+        	<t t-call="report.layout_zion">
+        		<div class="page">
+        			<!-- Report architecture -->
+        		</div>
+        	</t>
+        </template>
+    </data>
+</openerp>

@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+    <data>
+    	<report id="footer_zion" 
+                model="account.invoice"
+                string="Footer Report Zion"
+                name="account.footer_zion_view"
+                file="account.footer_zion"
+                report_type="qweb-pdf"/>
+
+        <template id="footer_zion_view">
+        	<!-- Footer architecture -->
+        </template>
+    </data>
+</openerp>

@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<openerp>
+	<data>
+		<template id="zion_report_proposal">
+			<t t-call="report.html_container">
+				<t t-foreach="docs" t-as="doc">
+					<t t-call="zion.layout_zion">
+						<t t-call="zion.header_zion"/>
+						<div class="page">
+							<!--FILA INFORMACION-->
+							<div class="row">
+								<div class="col-xs-5" style="border:1px solid #568eff">
+									<strong>Cotizacion para:</strong><br/>
+										Cliente: <br/>
+										Contacto: <br/>
+										Telefono:
+									</div>
+									<div class="col-xs-3" style="text-align:right;border:1px solid #568eff;border-left:0px;">
+										<strong>REFERENCIA: </strong><br/>
+										<br/>
+										<strong>Fecha:</strong><br/>
+										Valida hasta:
+									</div>
+									<div class="col-xs-4" style="border:1px solid #568eff;border-left:0px;"  t-if="doc.validity_date">
+										<strong># REF</strong><br/>
+										<br/>
+										<p t-field="doc.date_order"/>
+										<p t-field="doc.validity_date"/>
+									</div>
+								</div>
+								<div class="row">
+									<div class="col-xs-12" style="border:1px solid #568eff;border-up:0px;">
+										- El tipo de cambio que se tomara oficial es el del día de la firma del contrato<br/>
+										- Tiempo aproximado de entrega a la firma del contrato de 4 a 6 semanas<br/>
+										- Garantía directo con el fabricante en sitio para equipo de computo y en centro de servicio para accesorios<br/>
+										- Equipos sujetos a disponibilidad<br/>
+										- Estos precios no sentarán ningún precedente para futuras negociaciones y no incluyen servicios adicionales<br/>
+									</div>
+								</div>
+								<!--PRODUCTOS-->
+								<div class="row mt32" style="background-color:#568eff;border: 1px solid #568eff;color:#ffffff;">
+									<div class="col-xs-2"># PARTE</div>
+									<div class="col-xs-4">Descripción</div>
+									<div class="col-xs-2">Cantidad</div>
+									<div class="col-xs-2">Precio Unitario (S/IVA)</div>
+									<div class="col-xs-2">Precio TOTAL</div>
+								</div>
+								<div class="row">
+									<div class="col-xs-2" style="border-left:1px solid #568eff;">1.</div>
+									<div class="col-xs-4" style="border-left:1px solid #568eff;">Line 1 Item Description</div>
+									<div class="col-xs-2" style="border-left:1px solid #568eff;">100.00</div>
+									<div class="col-xs-2" style="border-left:1px solid #568eff;">1</div>
+									<div class="col-xs-2" style="border-left:1px solid #568eff;border-right:1px solid #568eff;">100.00</div>
+								</div>
+								<div class="row">
+									<div class="col-xs-10" style="text-align:right;border: 1px solid #568eff;">
+										<strong>Total:</strong>
+									</div>
+									<div class="col-xs-2" style="text-align:right;border:1px solid #568eff;border-left:0px;">
+										<strong>100.00</strong>
+									</div>
+								</div>
+							</div>
+						</t>
+				</t>
+			</t>
+		</template>
+
+<template id="layout_zion">
+    <!-- Multicompany -->
+    <t t-if="doc and 'company_id' in doc">
+        <t t-set="company" t-value="doc.company_id"></t>
+    </t>
+    <t t-if="not doc or not 'company_id' in doc">
+        <t t-set="company" t-value="res_company"></t>
+    </t>
+    <t t-raw="0" />
+</template>
+
+
+		<template id="header_zion">
+			<div class="header">
+				<div class="row">
+					<div class="col-xs-3" style="font-size:20">
+						<strong >Propuesta Informativa de Equipo</strong>
+					</div>
+					<div class="col-xs-6" style="margin-top:10px;">
+						Corporativo Zion de México presenta para su consideración y análisis el siguiente documento, el cual es de carácter informativo, a fin de ayudarle a tomar una mejor decisión en la compra de equipos de tecnología.
+					</div>
+					<div class="col-xs-3">
+						<img t-if="doc.company_id.logo" t-att-src="'data:image/png;base64,%s' % doc.company_id.logo" style="max-height: 45px;"/>
+					</div>
+				</div>
+			</div>
+		</template>
+
+	</data>
+</openerp>
