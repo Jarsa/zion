@@ -6,8 +6,8 @@
             model="sale.order"
             string="Proposal Zion"
             report_type="qweb-pdf"
-            name="zion.zion_report_proposal"
-            file="zion.zion_report_proposal"
+            name="report_zion.zion_report_proposal"
+            file="report_zion.zion_report_proposal"
         />
 	</data>
 </openerp>
