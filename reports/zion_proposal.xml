@@ -1,98 +1,112 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <openerp>
-	<data>
-		<template id="zion_report_proposal">
-			<t t-call="report.html_container">
-				<t t-foreach="docs" t-as="doc">
-					<t t-call="report_zion.layout_zion">
-						<t t-call="report_zion.header_zion"/>
-						<div class="page">
-							<!--FILA INFORMACION-->
-							<div class="row">
-								<div class="col-xs-5" style="border:1px solid #568eff">
-									<strong>Cotizacion para:</strong><br/>
-										Cliente: <br/>
-										Contacto: <br/>
-										Telefono:
-									</div>
-									<div class="col-xs-3" style="text-align:right;border:1px solid #568eff;border-left:0px;">
-										<strong>REFERENCIA: </strong><br/>
-										<br/>
-										<strong>Fecha:</strong><br/>
-										Valida hasta:
-									</div>
-									<div class="col-xs-4" style="border:1px solid #568eff;border-left:0px;"  t-if="doc.validity_date">
-										<strong># REF</strong><br/>
-										<br/>
-										<p t-field="doc.date_order"/>
-										<p t-field="doc.validity_date"/>
-									</div>
-								</div>
-								<div class="row">
-									<div class="col-xs-12" style="border:1px solid #568eff;border-up:0px;">
-										- El tipo de cambio que se tomara oficial es el del día de la firma del contrato<br/>
-										- Tiempo aproximado de entrega a la firma del contrato de 4 a 6 semanas<br/>
-										- Garantía directo con el fabricante en sitio para equipo de computo y en centro de servicio para accesorios<br/>
-										- Equipos sujetos a disponibilidad<br/>
-										- Estos precios no sentarán ningún precedente para futuras negociaciones y no incluyen servicios adicionales<br/>
-									</div>
-								</div>
-								<!--PRODUCTOS-->
-								<div class="row mt32" style="background-color:#568eff;border: 1px solid #568eff;color:#ffffff;">
-									<div class="col-xs-2"># PARTE</div>
-									<div class="col-xs-4">Descripción</div>
-									<div class="col-xs-2">Cantidad</div>
-									<div class="col-xs-2">Precio Unitario (S/IVA)</div>
-									<div class="col-xs-2">Precio TOTAL</div>
-								</div>
-								<div class="row">
-									<div class="col-xs-2" style="border-left:1px solid #568eff;">1.</div>
-									<div class="col-xs-4" style="border-left:1px solid #568eff;">Line 1 Item Description</div>
-									<div class="col-xs-2" style="border-left:1px solid #568eff;">100.00</div>
-									<div class="col-xs-2" style="border-left:1px solid #568eff;">1</div>
-									<div class="col-xs-2" style="border-left:1px solid #568eff;border-right:1px solid #568eff;">100.00</div>
-								</div>
-								<div class="row">
-									<div class="col-xs-10" style="text-align:right;border: 1px solid #568eff;">
-										<strong>Total:</strong>
-									</div>
-									<div class="col-xs-2" style="text-align:right;border:1px solid #568eff;border-left:0px;">
-										<strong>100.00</strong>
-									</div>
-								</div>
-							</div>
-						</t>
-				</t>
-			</t>
-		</template>
-
-<template id="layout_zion">
-    <!-- Multicompany -->
-    <t t-if="doc and 'company_id' in doc">
-        <t t-set="company" t-value="doc.company_id"></t>
-    </t>
-    <t t-if="not doc or not 'company_id' in doc">
-        <t t-set="company" t-value="res_company"></t>
-    </t>
-    <t t-raw="0" />
-</template>
-
-
-		<template id="header_zion">
-			<div class="header">
-				<div class="row">
-					<div class="col-xs-3" style="font-size:20">
-						<strong >Propuesta Informativa de Equipo</strong>
+<data>
+<template id="zion_report_proposal">
+	<t t-call="report.html_container">
+		<t t-foreach="docs" t-as="doc">
+			<t t-call="report_zion.layout_zion">
+				<div class="page">
+					<table class="table table-condensed">
+						<thead>
+							<tr>
+								<th>Description</th>
+								<th>Taxes</th>
+								<th class="text-right">Quantity</th>
+								<th class="text-right">Unit Price</th>
+								<th groups="sale.group_discount_per_so_line">Disc.(%)</th>
+								<th class="text-right">Price</th>
+							</tr>
+						</thead>
+						<tbody class="sale_tbody">
+							<tr t-foreach="doc.order_line" t-as="l">
+								<td>
+									<span t-field="l.name"/>
+								</td>
+								<td>
+									<span t-esc="', '.join(map(lambda x: x.name, l.tax_id))"/>
+								</td>
+								<td class="text-right">
+									<span t-field="l.product_uom_qty"/>
+									<span groups="product.group_uom" t-field="l.product_uom"/>
+								</td>
+								<td class="text-right">
+									<span t-field="l.price_unit"/>
+								</td>
+								<td groups="sale.group_discount_per_so_line">
+									<span t-field="l.discount"/>
+								</td>
+								<td class="text-right">
+									<span t-field="l.price_subtotal"
+										  t-field-options='{"widget": "monetary", "display_currency": "doc.pricelist_id.currency_id"}'/>
+								</td>
+							</tr>
+						</tbody>
+					</table>
+					<div class="row">
+						<div class="col-xs-4 pull-right">
+							<table class="table table-condensed">
+								<tr class="border-black">
+									<td><strong>Total Without Taxes</strong></td>
+									<td class="text-right">
+										<span t-field="doc.amount_untaxed"
+											  t-field-options='{"widget": "monetary", "display_currency": "doc.pricelist_id.currency_id"}'/>
+									</td>
+								</tr>
+								<tr>
+									<td>Taxes</td>
+									<td class="text-right">
+										<span t-field="doc.amount_tax"
+											  t-field-options='{"widget": "monetary", "display_currency": "doc.pricelist_id.currency_id"}'/>
+									</td>
+								</tr>
+								<tr class="border-black">
+									<td><strong>Total</strong></td>
+									<td class="text-right">
+										<span t-field="doc.amount_total"
+											  t-field-options='{"widget": "monetary", "display_currency": "doc.pricelist_id.currency_id"}'/>
+									</td>
+								</tr>
+							</table>
+						</div>
 					</div>
-					<div class="col-xs-6" style="margin-top:10px;">
-						Corporativo Zion de México presenta para su consideración y análisis el siguiente documento, el cual es de carácter informativo, a fin de ayudarle a tomar una mejor decisión en la compra de equipos de tecnología.
-					</div>
-					<div class="col-xs-3">
-						<img t-if="doc.company_id.logo" t-att-src="'data:image/png;base64,%s' % doc.company_id.logo" style="max-height: 45px;"/>
+					<div class="row">
+						<div class="col-xs-12">
+							<strong>Informacion:</strong> Este documento es solamente para efectos informativos y no representa una oferta o propuesta ni crea relación contractual alguna entre las partes. En caso de que los productos encontrados en esta cotización, sean requeridos por EL CLIENTE, éste se obliga a cumplir previamente con todos los requisitos de contratación, tales como: un análisis de crédito; presentación de documentación fiscal y legal; así como la suscripción del contrato que zion aplique, entre otros.
+						</div>
 					</div>
 				</div>
-			</div>
-		</template>
+			</t>	
+		</t>
+	</t>
+</template>
 
-	</data>
+<template id="layout_zion">
+	<!-- Multicompany -->
+	<t t-if="doc and 'company_id' in doc">
+		<t t-set="company" t-value="doc.company_id"></t>
+	</t>
+	<t t-if="not doc or not 'company_id' in doc">
+		<t t-set="company" t-value="res_company"></t>
+	</t>
+	<t t-call="report_zion.header_zion"/>
+	<t t-raw="0" />
+	<t t-call="report.external_layout_footer" />
+</template>
+
+<template id="header_zion">
+	<div class="header">
+		<div class="row">
+			<div class="col-xs-3" style="font-size:20">
+				<strong >Propuesta Informativa de Equipo</strong>
+			</div>
+				<div class="col-xs-6" style="margin-top:10px;">
+			Corporativo Zion de México presenta para su consideración y análisis el siguiente documento, el cual es de carácter informativo, a fin de ayudarle a tomar una mejor decisión en la compra de equipos de tecnología.
+				</div>
+			<div class="col-xs-3">
+				<img t-if="doc.company_id.logo" t-att-src="'data:image/png;base64,%s' % doc.company_id.logo" style="max-height: 45px;"/>
+			</div>
+		</div>
+	</div>
+</template>
+</data>
 </openerp>
