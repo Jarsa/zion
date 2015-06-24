@@ -8,10 +8,7 @@
     'version': '0.1',
     'depends': ['website_quote'],
     'data': [
-            # 'security/ir.model.access.csv',
-            #'templates.xml',
             'zion_report.xml',
-            #'data/report_paperformat.xml',
             'reports/zion_proposal.xml',
             ],
     'demo': [],
