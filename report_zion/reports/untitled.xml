@@ -92,3 +92,34 @@
                 <li><span class="topage"/></li>
             </ul>
         </div>
+
+
+								<!--FILA INFORMACION
+								<div class="row">
+									<div class="col-xs-5" style="border:1px solid #568eff">
+										<strong>Cotizacion para:</strong><br/>
+											Cliente: <br/>
+											Contacto: <br/>
+											Telefono:
+										</div>
+										<div class="col-xs-3" style="text-align:right;border:1px solid #568eff;border-left:0px;">
+											<strong>REFERENCIA: </strong><br/>
+											<br/>
+											<strong>Fecha:</strong><br/>
+											Valida hasta:
+										</div>
+										<div class="col-xs-4" style="border:1px solid #568eff;border-left:0px;"  t-if="doc.validity_date">
+											<strong># REF</strong><br/>
+											<br/>
+											<p t-field="doc.date_order"/>
+											<p t-field="doc.validity_date"/>
+										</div>
+									</div>
+									<div class="row">
+										<div class="col-xs-12" style="border:1px solid #568eff;border-up:0px;">
+											- El tipo de cambio que se tomara oficial es el del día de la firma del contrato<br/>
+											- Tiempo aproximado de entrega a la firma del contrato de 4 a 6 semanas<br/>
+											- Garantía directo con el fabricante en sitio para equipo de computo y en centro de servicio para accesorios<br/>
+											- Equipos sujetos a disponibilidad<br/>
+											- Estos precios no sentarán ningún precedente para futuras negociaciones y no incluyen servicios adicionales<br/>
+										</div>-->
