@@ -1,0 +1,122 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# 	* report_zion
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 8.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2015-06-24 19:54+0000\n"
+"PO-Revision-Date: 2015-06-24 14:59-0600\n"
+"Last-Translator: \n"
+"Language-Team:  <oscar.sabaleta@jarsa.com.mx>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Poedit 1.5.4\n"
+"Language: es\n"
+
+#. module: report_zion
+#: view:website:report_zion.footer_zion
+msgid "&bull;"
+msgstr ""
+
+#. module: report_zion
+#: view:website:report_zion.client_info
+msgid "Cliente:"
+msgstr ""
+
+#. module: report_zion
+#: view:website:report_zion.header_zion
+msgid ""
+"Corporativo Zion de México presenta para su consideración y análisis el "
+"siguiente documento, el cual es de carácter informativo, a fin de ayudarle a "
+"tomar una mejor decisión en la compra de equipos de tecnología."
+msgstr ""
+
+#. module: report_zion
+#: view:website:report_zion.zion_report_proposal
+msgid "Description"
+msgstr "Descripción"
+
+#. module: report_zion
+#: view:website:report_zion.zion_report_proposal
+msgid "Disc.(%)"
+msgstr ""
+
+#. module: report_zion
+#: view:website:report_zion.footer_zion
+msgid "Email:"
+msgstr ""
+
+#. module: report_zion
+#: view:website:report_zion.footer_zion
+msgid "Fax:"
+msgstr ""
+
+#. module: report_zion
+#: view:website:report_zion.footer_zion
+msgid "Page:"
+msgstr ""
+
+#. module: report_zion
+#: view:website:report_zion.footer_zion
+msgid "Phone:"
+msgstr ""
+
+#. module: report_zion
+#: view:website:report_zion.zion_report_proposal
+msgid "Price"
+msgstr "Precio"
+
+#. module: report_zion
+#: model:ir.actions.report.xml,name:report_zion.zion_proposal
+msgid "Proposal Zion"
+msgstr ""
+
+#. module: report_zion
+#: view:website:report_zion.header_zion
+msgid "Propuesta Informativa de Equipo"
+msgstr ""
+
+#. module: report_zion
+#: view:website:report_zion.zion_report_proposal
+msgid "Quantity"
+msgstr ""
+
+#. module: report_zion
+#: view:website:report_zion.client_info
+msgid "Referencia:"
+msgstr ""
+
+#. module: report_zion
+#: view:website:report_zion.zion_report_proposal
+msgid "Taxes"
+msgstr ""
+
+#. module: report_zion
+#: view:website:report_zion.zion_report_proposal
+msgid "Total"
+msgstr ""
+
+#. module: report_zion
+#: view:website:report_zion.zion_report_proposal
+msgid "Total Without Taxes"
+msgstr ""
+
+#. module: report_zion
+#: view:website:report_zion.zion_report_proposal
+msgid "Unit Price"
+msgstr ""
+
+#. module: report_zion
+#: view:website:report_zion.footer_zion
+msgid "Website:"
+msgstr ""
+
+#. module: report_zion
+#: view:website:report_zion.footer_zion
+msgid ""
+"Zion Tech and Zion Logo are trademarks or registered trademarks of "
+"Promociones y producciones Zion in Mexico and other countries."
+msgstr ""
