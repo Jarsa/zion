@@ -8,7 +8,6 @@
     'version': '0.1',
     'depends': [
                'website_quote',
-               'l10n_mx_facturae_pac_cd',
                ],
 
     'data': [
