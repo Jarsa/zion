@@ -6,11 +6,12 @@
     'website': 'http://www.jarsa.com.mx',
     'category': 'Reports',
     'version': '0.1',
-    'depends': ['website_quote'],
+    'depends': [
+               'website_quote',
+               ],
+
     'data': [
             'zion_report.xml',
             'reports/zion_proposal.xml',
             ],
-    'demo': [],
-    #'license': 'AGPLv3'
 }
