@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<openerp>
+<data>
+<template id="zion_contract">
+	
+</template>
+
+<!--Traductor de Reporte-->
+<template id="zion_contract">
+    <t t-call="report.html_container">
+        <t t-foreach="doc_ids" t-as="doc_id">
+            <t t-raw="translate_doc(doc_id, doc_model, 'partner_id.lang', 'report_zion.zion_contract_report')"/>
+        </t>
+    </t>
+</template>
+
+</data>
+</openerp>
