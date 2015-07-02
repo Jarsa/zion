@@ -2,7 +2,7 @@
 <openerp>
 	<data>
 		<report 
-            id="zion_proposal"
+            id="zion_saleorder"
             model="sale.order"
             string="Proposal Zion"
             report_type="qweb-pdf"
